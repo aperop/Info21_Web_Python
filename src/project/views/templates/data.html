@@ -10,72 +10,12 @@
     <section class="u-align-center u-clearfix op-section-2" id="sec-847a">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
-
-<!--    ВЫВОД ТАБЛИЦЫ ПОЛЬЗОВАТЕЛЕЙ     -->
-<!--            <h2 class="u-align-center u-text u-text-default u-text-1">-->
-<!--                All tables<br>-->
-<!--            </h2>-->
-            <thead class="u-palette-4-base u-table-header u-table-header-1">
-              <tr style="height: 48px;">
-              {% for tbl in all %}
-                <a class="u-border-1 u-border-custom-color-1 u-table-cell" link={{links}}>{{tbl[2].title()}}</a>
+        <h1>Все таблицы в базе данных</h1>
+            <ul>
+              {% for table in tables %}
+                <li><a href="data/{{ table[0] }}">{{ table[0] }}</a></li>
               {% endfor %}
-              </tr>
-            </thead>
-            <h2 class="u-align-center u-text u-text-default u-text-1">
-                {{name}} table<br>
-            </h2>
-          <table class="u-table-entity u-table-entity-1">
-            <colgroup>
-              <col width="50%">
-              <col width="50%">
-            </colgroup>
-
-            <thead class="u-palette-4-base u-table-header u-table-header-1">
-              <tr style="height: 48px;">
-              {% for header in titles %}
-                <th class="u-border-1 u-border-custom-color-1 u-table-cell">{{header[0].title()}}</th>
-              {% endfor %}
-              </tr>
-            </thead>
-
-            <tbody class="u-table-body">
-              {% for rows in data %}
-              <tr style="height: 48px;">
-                {% for cell in rows %}
-                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ cell }}</td>
-                {% endfor %}
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-            {{links}}
-            <p><a href="#top" class="topLink">Наверх</a></p>
-<!--    ВЫВОД ТАБЛИЦЫ      -->
-<!--          <table class="u-table-entity u-table-entity-1">-->
-<!--            <colgroup>-->
-<!--              <col width="50%">-->
-<!--              <col width="50%">-->
-<!--            </colgroup>-->
-<!--            <thead class="u-palette-4-base u-table-header u-table-header-1">-->
-<!--              <tr style="height: 48px;">-->
-<!--              {% for tbl in all %}-->
-<!--                <th class="u-border-1 u-border-custom-color-1 u-table-cell">{{tbl[2].title()}}</th>-->
-<!--              {% endfor %}-->
-<!--              </tr>-->
-<!--            </thead>-->
-
-<!--            <tbody class="u-table-body">-->
-<!--              {% for rows in data %}-->
-<!--              <tr style="height: 48px;">-->
-<!--                {% for cell in rows %}-->
-<!--                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ cell }}</td>-->
-<!--                {% endfor %}-->
-<!--              </tr>-->
-<!--              {% endfor %}-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--    КОНЕЦ ВЫВОДА     -->
+            </ul>
         </div>
       </div>
     </section>

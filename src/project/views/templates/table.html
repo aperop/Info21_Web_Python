@@ -1,0 +1,32 @@
+{% extends 'page.html' %}
+<p><a name="top" class="topLink"></a></p>
+
+{% block title %}Данные{% endblock %}
+
+{% block body %}
+    <section class="u-clearfix u-container-align-center u-image op-section-1" id="sec-eae5" data-image-width="1818" data-image-height="606">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+    <section class="u-align-center u-clearfix op-section-2" id="sec-847a">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <table>
+            <thead class="u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 48px;">
+                  {% for col in columns %}
+                    <th class="u-border-1 u-border-custom-color-1 u-table-cell">{{ col[0] }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody class="u-table-body">
+                {% for row in rows %}
+                  <tr style="height: 48px;">
+                    {% for value in row %}
+                      <td class="u-border-1 u-border-grey-30 u-table-cell">{{ value }}</td>
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+      </div>
+    </section>
+{% endblock %}

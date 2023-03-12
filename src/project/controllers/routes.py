@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
 from model.templates.datapage import *
+import sys
+
 app_route = Blueprint('route', __name__)
 
 @app_route.route('/')
@@ -17,14 +19,24 @@ def index():
 @app_route.route('/data.html')
 def data():
   "Функция отображения страницы 'данные'"
-  titles = table_titles("peers")
-  data = table_rows("peers")
-  name = "Peers"
-  all = all_tables()
-  links = all_links()
-  return render_template('data.html', all=all,
-                         data=data, titles=titles,
-                         name=name, links=links)
+  print("###################################", file=sys.stderr)
+
+  tables = all_tables()
+  print(tables, file=sys.stderr)
+
+  return render_template('data.html', tables=tables)
+
+
+@app_route.route('/data/<table_name>')
+def table(table_name):
+  "Функция отображения страницы таблицы"
+  # print("###################################", file=sys.stderr)
+  columns = table_titles(table_name)
+  rows = table_rows(table_name)
+  name = table_name
+  # print(table_name, columns, rows, file=sys.stderr)
+
+  return render_template('table.html', rows=rows, columns=columns, name=name)
 
 @app_route.route('/operations')
 @app_route.route('/operations.php')
